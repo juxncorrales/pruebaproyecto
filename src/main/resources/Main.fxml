@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.unieventos.controller.MainController">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Opciones">
+                    <MenuItem text="Buscar Eventos" onAction="#buscarEventos"/>
+                    <MenuItem text="Registrarse" onAction="#mostrarRegistro"/>
+                    <MenuItem text="Iniciar Sesión" onAction="#mostrarInicioSesion"/>
+                    <MenuItem text="Cerrar Sesión" onAction="#cerrarSesion"/>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <SplitPane dividerPositions="0.6">
+                <VBox spacing="10">
+                    <Label text="Eventos Disponibles" style="-fx-font-size: 18px;" />
+                    <TableView fx:id="tablaEventos">
+                        <columns>
+                            <TableColumn text="Nombre" prefWidth="150">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="nombre" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Ciudad" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="ciudad" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Fecha" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="fecha" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+                <VBox spacing="10">
+                    <Label text="Detalles del Evento" style="-fx-font-size: 18px;" />
+                    <ImageView fx:id="imagenEvento" fitWidth="200" fitHeight="200" />
+                    <Label fx:id="descripcionEvento" wrapText="true" />
+                    <ComboBox fx:id="comboLocalidades" promptText="Seleccionar Localidad" />
+                    <TextField fx:id="cantidadEntradas" promptText="Cantidad de Entradas" />
+                    <Button text="Comprar" onAction="#comprarEntradas" />
+                </VBox>
+            </SplitPane>
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Registro" fx:id="labelRegistro" style="-fx-font-size: 18px;" />
+                <GridPane fx:id="gridRegistro" vgap="5" hgap="5">
+                    <Label text="Cédula:" />
+                    <TextField fx:id="txtCedula" />
+                    <Label text="Nombre Completo:" />
+                    <TextField fx:id="txtNombreCompleto" />
+                    <Label text="Teléfono:" />
+                    <TextField fx:id="txtTelefono" />
+                    <Label text="Email:" />
+                    <TextField fx:id="txtEmailRegistro" />
+                    <Label text="Contraseña:" />
+                    <PasswordField fx:id="txtPasswordRegistro" />
+                    <Button text="Registrar" onAction="#registrarCliente" GridPane.rowIndex="6" GridPane.columnSpan="2" />
+                </GridPane>
+
+                <Label text="Inicio de Sesión" fx:id="labelInicioSesion" style="-fx-font-size: 18px;" />
+                <GridPane fx:id="gridInicioSesion" vgap="5" hgap="5">
+                    <Label text="Email:" />
+                    <TextField fx:id="txtEmailInicioSesion" />
+                    <Label text="Contraseña:" />
+                    <PasswordField fx:id="txtPasswordInicioSesion" />
+                    <Button text="Iniciar Sesión" onAction="#iniciarSesion" GridPane.rowIndex="2" GridPane.columnSpan="2" />
+                </GridPane>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

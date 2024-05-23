@@ -1,0 +1,15 @@
+<!-- Registro.fxml -->
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.unieventos.controller.RegistroController">
+    <children>
+        <TextField fx:id="cedulaField" promptText="Cédula"/>
+        <TextField fx:id="nombreField" promptText="Nombre Completo"/>
+        <TextField fx:id="telefonoField" promptText="Teléfono"/>
+        <TextField fx:id="emailField" promptText="Email"/>
+        <PasswordField fx:id="passwordField" promptText="Contraseña"/>
+        <Button text="Registrar" onAction="#registrar"/>
+    </children>
+</VBox>
